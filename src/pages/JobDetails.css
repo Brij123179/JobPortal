@@ -217,7 +217,7 @@
 }
 
 .modal-content {
-    background: var(--bg-card);
+    background: var(--bg-elevated);
     padding: 32px;
     border-radius: 16px;
     width: 90%;
