@@ -71,9 +71,13 @@ const EmployerDashboard = () => {
                 setApplications(applications.map(app =>
                     app.id === appId ? { ...app, status: newStatus } : app
                 ));
+                alert(`Applicant status has been updated to "${newStatus.toUpperCase()}"! The Job Seeker will now see this on their dashboard.`);
+            } else {
+                alert('Failed to update status.');
             }
         } catch (error) {
             console.error('Error updating status:', error);
+            alert('An error occurred while updating status.');
         }
     };
 
@@ -203,13 +207,14 @@ const EmployerDashboard = () => {
                                                 </td>
                                                 <td>
                                                     <select
-                                                        value={app.status}
+                                                        value={app.status?.toLowerCase() || 'pending'}
                                                         onChange={(e) => handleStatusUpdate(app.id, e.target.value)}
                                                         className="status-select"
                                                     >
                                                         <option value="pending">Pending</option>
                                                         <option value="reviewed">Reviewed</option>
                                                         <option value="interviewed">Interviewed</option>
+                                                        <option value="approved">Approved</option>
                                                         <option value="hired">Hired</option>
                                                         <option value="rejected">Rejected</option>
                                                     </select>
