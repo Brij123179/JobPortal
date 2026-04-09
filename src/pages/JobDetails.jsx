@@ -63,6 +63,7 @@ const JobDetails = () => {
             if (response.ok) {
                 setApplicationStatus('success');
                 setShowModal(false);
+                alert('Application submitted successfully!');
             } else {
                 setApplicationStatus('error');
                 alert(data.message || 'Failed to apply');

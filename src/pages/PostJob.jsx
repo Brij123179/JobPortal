@@ -64,8 +64,9 @@ const PostJob = () => {
             if (!response.ok) {
                 throw new Error(data.message || 'Failed to post job');
             }
-
-            navigate('/jobs');
+            
+            alert('Job posted successfully!');
+            navigate('/employer/dashboard');
         } catch (err) {
             setError(err.message);
         } finally {
